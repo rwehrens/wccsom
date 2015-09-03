@@ -1,7 +1,7 @@
 ## create a new grid, same topology, twice as large
 ## interpolate for new units
 
-expand.som <- function(somnet, plotit=FALSE)
+expand <- function(somnet, plotit=FALSE)
 {
   if (plotit) cat("Creating new net...")
   oldxdim <- somnet$grid$xdim

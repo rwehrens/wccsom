@@ -1,11 +1,11 @@
-\name{expand.som}
-\alias{expand.som}
+\name{expand}
+\alias{expand}
 \title{Expand a SOM network}
 \description{
   Increases the size of a network by a factor of 2 in both
   x and y directions; code vectors for new units are interpolated.
 }
-\usage{expand.som(somnet, plotit=FALSE)}
+\usage{expand(somnet, plotit=FALSE)}
 \details{
   For hexagonal grids, the six closest units are used for interpolation,
   weighted by distance; for rectangular grids, the four closest are used.
@@ -23,6 +23,6 @@ data(cepha)
 gr <- somgrid(3,3, "hexagonal")
 set.seed(7)
 x <- wccsom(cepha$patterns, grid=gr, trwidth=20, rlen=50)
-x2 <- expand.som(x, plotit=TRUE)
+x2 <- expand(x, plotit=TRUE)
 }
 \keyword{classif}
