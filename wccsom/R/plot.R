@@ -167,10 +167,12 @@ plot.wccmapping <- function(x, classif, main, labels, pchs,
   symbols(x$grid$pts[, 1], x$grid$pts[, 2],
           circles = rep(0.5, nrow(x$grid$pts)),
           inches = FALSE, add = TRUE, bg = unit.bgcol)
-  if (is.null(labels) & !is.null(pchs))
+  if (is.null(labels)) {
+    if (is.null(pchs)) pchs <- 1
     points(x$grid$pts[classif, 1] + rnorm(length(classif), 0, 0.12),
            x$grid$pts[classif, 2] + rnorm(length(classif), 0, 0.12),
            pch = pchs, ...)
+  }
   if (!is.null(labels))
     text(x$grid$pts[classif, 1] + rnorm(length(classif), 0, 0.12),
          x$grid$pts[classif, 2] + rnorm(length(classif), 0, 0.12),
