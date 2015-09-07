@@ -94,9 +94,10 @@
     margins[2] <- margins[2] + 4
   if (is.null(main))
     main <- colnames(Y)
-  
   margins[3] <- margins[3] + 2
 
+  opar <- par("mar")
+  on.exit(par(mar = opar))
   par(mar = margins)
 
   plot(x$grid, ...)
@@ -136,6 +137,8 @@
 plot.wccmapping <- function(x, classif, main, labels, pchs,
                             unit.bgcol, ...)
 {
+  opar <- par("mar")
+  on.exit(par(mar = opar))
   ifelse(is.null(main),
          par(mar = c(0.6, 0.6, 0.6, 0.6)),
          par(mar = c(0.6, 0.6, 2.6, 0.6)))
@@ -149,7 +152,6 @@ plot.wccmapping <- function(x, classif, main, labels, pchs,
   if (is.null(classif))
     stop("no classif argument")
 
-  
   plot(x$grid, ...)
   title.y <- max(x$grid$pts[,2]) + 1.2
   if (title.y > par("usr")[4] - .2){
@@ -185,6 +187,8 @@ plot.wccmapping <- function(x, classif, main, labels, pchs,
     margins[2] <- margins[2] + 4
   if (!is.null(main)) 
     margins[3] <- margins[3] + 2
+  opar <- par("mar")
+  on.exit(par(mar = opar))
   par(mar = margins)
   
   plot(x$grid, ...)
@@ -246,6 +250,8 @@ plot.wccmapping <- function(x, classif, main, labels, pchs,
 "plot.wccchanges" <- function(x, main, ...)
 {
   if (is.matrix(x$changes)) { # for supervised networks
+    opar <- par("mar")
+    on.exit(par(mar = opar))
     par(mar=c(5.1, 4.1, 4.1, 4.1)) # axis scale to the right as well
     
     ## scale so that both have the same max value; assume only
@@ -275,6 +281,8 @@ plot.wccmapping <- function(x, classif, main, labels, pchs,
     margins[2] <- margins[2] + 4
   if (!is.null(main)) 
     margins[3] <- margins[3] + 2
+  opar <- par("mar")
+  on.exit(par(mar = opar))
   par(mar = margins)
 
   if (is.null(classif) & !is.null(x$unit.classif)) {
@@ -330,6 +338,8 @@ plot.wccmapping <- function(x, classif, main, labels, pchs,
 
 "plot.wcccodes" <- function(x, main, unit.bgcol, ...)
 {
+  opar <- par("mar")
+  on.exit(par(mar = opar))
   ifelse(is.null(main),
          par(mar = c(0.6, 0.6, 0.6, 0.6)),
          par(mar = c(0.6, 0.6, 2.6, 0.6)))
@@ -413,6 +423,8 @@ plot.wccmapping <- function(x, classif, main, labels, pchs,
   
   margins[3] <- margins[3] + 2
 
+  opar <- par("mar")
+  on.exit(par(mar = opar))
   par(mar = margins)
   
   plot(x$grid, ...)
