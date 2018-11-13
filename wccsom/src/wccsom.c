@@ -74,8 +74,8 @@ void WCC_onlineSOM(double *data,
       dm = -1.0;
       for (cd=0; cd<ncodes; cd++) {
 	sim = wcc_crosscorr(data + i*p, 
-			     codes + cd*p, 
-			     p, wghts, trwdth)/(Acors[cd] * dataAcors[i]);
+			    codes + cd*p, 
+			    p, wghts, trwdth)/(Acors[cd] * dataAcors[i]);
 	if (sim > dm) {
 	  nearest = cd;
 	  dm = sim;
